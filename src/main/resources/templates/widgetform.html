@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head lang="en">
+ 		<title>Widget!</title>
+ 		<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+        
+        
+	</head>
+	<body>
+		<div class="container">
+			<!--/*/ <th:block th:include="fragments/pageheader :: header"></th:block> /*/-->
+			<form class="form-horizontal" th:object="${widget}" th:action="@{/widget}" method="post">
+					<input type="hidden" th:field="*{id}" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Widget Name:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{name}"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Widget Description:</label>
+						<div class="col-sm-10">
+							<input class="form-control" th:field="*{description}" />
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</div>
+				</form>
+		
+		
+		</div>
+	</body>
+</html>

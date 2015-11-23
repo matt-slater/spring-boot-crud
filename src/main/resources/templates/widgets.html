@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head lang="en">
+ 		<title>Widget!</title>
+ 		<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+        
+        
+	</head>
+	<body>
+		<div class="container">
+			<!--/*/ <th:block th:include="fragments/pageheader :: header"></th:block> /*/-->
+			<h2>Widget Master List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="widget : ${widgets}">
+					<td th:text="${widget.id}"><a href="/widget/${widget.id}">Id</a></td>
+					<td th:text="${widget.name}">Name</td>
+					<td th:text="${widget.description}">Description</td>
+					<td><a th:href="${'/widget/' + widget.id}">View</a></td>
+					<td><a th:href="${'/widget/edit/' + widget.id}">Edit</a></td>
+					<td><a th:href="${'/widget/delete/' + widget.id}">Delete</a></td>
+				</tr>
+			
+			</table>
+		</div>
+	</body>
+</html>
